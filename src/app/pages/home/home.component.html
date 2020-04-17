@@ -1,0 +1,12 @@
+<main class="home">
+  <div class="home__container">
+    <div class="home__header">
+      <h1 class="home__title">Clicker</h1>
+      <p class="home__subtitle">Welcome stranger! Write your name below.</p>
+    </div>
+    <form class="home__form" (submit)="onSubmit($event)">
+      <input type="text" class="home__input input" [value]="username" (change)="onInputChange($event)" autofocus required />
+      <button class="home__button button" type="submit">Continue</button>
+    </form>
+  </div>
+</main>
