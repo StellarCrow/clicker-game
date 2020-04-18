@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+interface ILevel {
+  value:number;
+  name: string;
+  checked: boolean;
+}
 
 @Component({
   selector: 'app-levels',
@@ -9,27 +15,13 @@ export class LevelsComponent {
   public timeValue: number;
 
   @Input() levels: Array<object>;
-  @Output() newTime = new EventEmitter<number>();
+  @Input() isTimerCounting: boolean;
+  @Output() newTime = new EventEmitter<ILevel>();
 
   constructor() {}
 
-  // ngOnChanges(changes: any): void {
-  //   for (const propName in changes) {
-  //     if (changes.hasOwnProperty(propName)) {
-  //       switch (propName) {
-  //         case 'levels': {
-  //           if (this.timerStarted) {
-  //             this.startTimer();
-  //           }
-  //           break;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  public changeTimeValue(value: number): void {
-    this.timeValue = value;
-    this.newTime.emit(this.timeValue);
+  public changeTimeValue(level: ILevel): void {
+    this.timeValue = level.value;
+    this.newTime.emit(level);
   }
 }

@@ -11,6 +11,7 @@ export class GameComponent {
   public clickCount = 0;
   public showGif = false;
   public isTimerCounting = false;
+  public showResults = false;
   public newTime = 59;
   public levels = levels;
 
@@ -34,10 +35,11 @@ export class GameComponent {
     if (isTimerStopped) {
       this.isTimerCounting = false;
       this.showGif = false;
+      this.showResults = true;
     }
   }
 
-  public setNewTime(seconds: number): void {
-    this.newTime = seconds;
+  public setNewTime(level): void {
+    this.newTime = level.value;
   }
 }

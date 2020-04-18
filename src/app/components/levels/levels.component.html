@@ -6,8 +6,9 @@
       [id]="level.name"
       class="level-list__input"
       [value]="level.value"
-      (change)="changeTimeValue(level.value)"
+      (change)="changeTimeValue(level)"
       [checked]="level.checked"
+      [disabled]="isTimerCounting"
     />
     <label [for]="level.name" class="level-list__label">{{ level.name }}</label>
   </li>

@@ -11,18 +11,23 @@
       {{ username }}
     </div>
   </div>
-  <div class="game__row">
+  <div class="game__row" *ngIf="!showResults; else results">
     <div class="game__levels">
-      <app-levels [levels]="levels" (newTime)="setNewTime($event)"></app-levels>
+      <app-levels [levels]="levels" (newTime)="setNewTime($event)" [isTimerCounting]="isTimerCounting"></app-levels>
     </div>
     <div class="game__button">
       <button class="button button--click" (click)="incrementCount()">Click</button>
       <div class="game__timer">
-        <app-timer [timerStarted]="isTimerCounting" [changeTime]="newTime" (timerStopped)="onTimerStopped($event)"></app-timer>
+        <app-timer [timerStarted]="isTimerCounting" [setTime]="newTime" (timerStopped)="onTimerStopped($event)"></app-timer>
       </div>
     </div>
     <div class="game__gif">
       <img class="game__image" src="assets/images/guys.gif" alt="guys" [ngStyle]="setGifStyle()" />
     </div>
   </div>
+  <ng-template class="game__row" #results>
+    <div class="game__description">
+      {{clickCount}}
+    </div>
+  </ng-template>
 </main>

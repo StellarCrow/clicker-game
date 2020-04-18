@@ -7,9 +7,10 @@ import { Component, Input, OnChanges, SimpleChange, Output, EventEmitter, Pipe, 
 })
 export class TimerComponent implements OnChanges {
   public timeLeft: number;
+  private interval: any;
 
   @Input() timerStarted: boolean;
-  @Input() changeTime: number;
+  @Input() setTime: number;
   @Output() timerStopped = new EventEmitter<boolean>();
 
   constructor() {}
@@ -24,8 +25,8 @@ export class TimerComponent implements OnChanges {
             }
             break;
           }
-          case 'changeTime': {
-            this.timeLeft = this.changeTime;
+          case 'setTime': {
+            this.timeLeft = this.setTime;
           }
         }
       }
@@ -33,10 +34,11 @@ export class TimerComponent implements OnChanges {
   }
 
   private startTimer() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
+        clearInterval(this.interval);
         this.timerStopped.emit(true);
       }
     }, 1000);
