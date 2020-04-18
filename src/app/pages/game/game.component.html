@@ -2,8 +2,9 @@
   <div class="game__row">
     <div class="game__description">
       <ol class="game__list">
-        <li class="game__list-item">Choose time.</li>
+        <li class="game__list-item">Choose level.</li>
         <li class="game__list-item">Press button to start.</li>
+        <li class="game__list-item">Win gold finger.</li>
       </ol>
     </div>
     <div class="game__username">
@@ -11,11 +12,13 @@
     </div>
   </div>
   <div class="game__row">
-    <div class="game__levels"></div>
+    <div class="game__levels">
+      <app-levels [levels]="levels" (newTime)="setNewTime($event)"></app-levels>
+    </div>
     <div class="game__button">
       <button class="button button--click" (click)="incrementCount()">Click</button>
       <div class="game__timer">
-
+        <app-timer [timerStarted]="isTimerCounting" [changeTime]="newTime" (timerStopped)="onTimerStopped($event)"></app-timer>
       </div>
     </div>
     <div class="game__gif">

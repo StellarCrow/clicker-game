@@ -1,0 +1,14 @@
+<ul class="level-list">
+  <li class="level-list__item" *ngFor="let level of levels; let i = index">
+    <input
+      type="radio"
+      name="level"
+      [id]="level.name"
+      class="level-list__input"
+      [value]="level.value"
+      (change)="changeTimeValue(level.value)"
+      [checked]="level.checked"
+    />
+    <label [for]="level.name" class="level-list__label">{{ level.name }}</label>
+  </li>
+</ul>

@@ -43,8 +43,17 @@
 
         & > .button {
             display: block;
-            margin: 0 auto;
+            margin: 2% auto;
         }
+    }
+
+    &__timer {
+        padding: 8% 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+        color: $text-color--light;
+
     }
 
     &__gif {

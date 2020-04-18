@@ -1,0 +1,41 @@
+@import 'setup/variables';
+@import 'setup/mixins';
+
+.level-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    cursor: pointer;
+    padding: 0.5em 1em;
+  }
+
+  &__input:checked + &__label {
+    @include pixel-border($pixel-box-color, $outline-width - 2px);
+  }
+
+  &__item {
+    margin-bottom: 6%;
+
+    &:nth-child(n) {
+      color: $primary-color;
+    }
+
+    &:nth-child(2n) {
+      color: $secondary-color;
+    }
+
+    &:nth-child(3n) {
+      color: $success-color;
+    }
+
+    &:nth-child(4n) {
+      color: $warning-color;
+    }
+  }
+}
