@@ -1,1 +1,25 @@
-<p>game works!</p>
+<main class="game">
+  <div class="game__row">
+    <div class="game__description">
+      <ol class="game__list">
+        <li class="game__list-item">Choose time.</li>
+        <li class="game__list-item">Press button to start.</li>
+      </ol>
+    </div>
+    <div class="game__username">
+      {{ username }}
+    </div>
+  </div>
+  <div class="game__row">
+    <div class="game__levels"></div>
+    <div class="game__button">
+      <button class="button button--click" (click)="incrementCount()">Click</button>
+      <div class="game__timer">
+
+      </div>
+    </div>
+    <div class="game__gif">
+      <img class="game__image" src="assets/images/guys.gif" alt="guys" [ngStyle]="setGifStyle()" />
+    </div>
+  </div>
+</main>

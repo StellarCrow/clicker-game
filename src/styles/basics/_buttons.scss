@@ -1,11 +1,12 @@
 @import 'setup/variables';
 @import 'setup/mixins';
 
-$shadow-width: 4px;
-$outline-width: 6px;
+
 $shadow-color: $success-color--dark;
+$click-shadow-color: $danger-color--dark;
 
 .button {
+  @include pixel-border(#000000, $outline-width);
   background-color: $success-color;
   position: relative;
   display: inline-block;
@@ -17,7 +18,7 @@ $shadow-color: $success-color--dark;
   color: $text-color--light;
   cursor: pointer;
   outline: none;
-  border:none;
+  border: none;
   box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $shadow-color;
 
   &:hover,
@@ -26,26 +27,20 @@ $shadow-color: $success-color--dark;
     box-shadow: inset (-$shadow-width * 1.5) (-$shadow-width * 1.5) 0px 0px $shadow-color;
   }
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-  }
+  &--click {
+    @include pixel-border($pixel-box-color, $outline-width);
+    background: $danger-color;
+    font-size: inherit;
+    box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $click-shadow-color;
 
-  &:before {
-    top: -$outline-width;
-    left: 0;
-    border-top: $outline-width black solid;
-    border-bottom: $outline-width black solid;
-  }
+    &:hover,
+    &:focus {
+      background: $button-click--hover;
+      box-shadow: inset (-$shadow-width * 1.5) (-$shadow-width * 1.5) 0px 0px $click-shadow-color;
+    }
 
-  &:after {
-    left: -$outline-width;
-    top: 0;
-    border-left: $outline-width black solid;
-    border-right: $outline-width black solid;
+    &:active {
+      box-shadow: inset $shadow-width $shadow-width 0px 0px $click-shadow-color;
+    }
   }
 }
