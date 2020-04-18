@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,24 +6,23 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  username = 'Username';
+export class HomeComponent {
+  public username = 'Username';
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-
-  onInputChange({ target }) {
-    this.username = target.value;
+  public onInputChange({ target }: CustomEvent): void {
+    this.username = (target as HTMLInputElement).value;
   }
 
-  onSubmit(event) {
+  public onSubmit(event: CustomEvent): void {
     event.preventDefault();
+    const username = this.username.toLowerCase();
     const users = localStorage.getItem('users');
     const usersArray = JSON.parse(users) || [];
-    const user = { user: this.username, score: 0 };
+    const user = { user: username, score: 0 };
     usersArray.push(user);
-    localStorage.setItem('user', this.username);
+    localStorage.setItem('user', username);
     localStorage.setItem('users', JSON.stringify(usersArray));
     this.router.navigate(['/game']);
   }
