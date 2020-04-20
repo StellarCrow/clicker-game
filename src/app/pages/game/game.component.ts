@@ -1,12 +1,14 @@
+import { TimerComponent } from './../../components/timer/timer.component';
 import levels from '../../constants/levels';
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import ILevel from 'src/app/models/ILevel';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
   public username = '';
   public clickCount = 0;
   public showGif = false;
@@ -15,7 +17,9 @@ export class GameComponent {
   public newTime = 59;
   public levels = levels;
 
-  constructor() {
+  @ViewChild('timer') timerRef: TimerComponent;
+
+  ngOnInit(): void {
     this.username = localStorage.getItem('user');
   }
 
@@ -24,22 +28,18 @@ export class GameComponent {
     if (this.clickCount === 1) {
       this.showGif = true;
       this.isTimerCounting = true;
+      this.timerRef.startTimer();
     }
-  }
-
-  public setGifStyle(): object {
-    return { visibility: this.showGif ? 'visible' : 'hidden' };
   }
 
   public onTimerStopped(isTimerStopped: boolean): void {
     if (isTimerStopped) {
-      this.isTimerCounting = false;
       this.showGif = false;
       this.showResults = true;
     }
   }
 
-  public setNewTime(level): void {
+  public setNewTime(level: ILevel): void {
     this.newTime = level.value;
   }
 }

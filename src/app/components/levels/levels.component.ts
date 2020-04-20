@@ -1,24 +1,24 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-
-interface ILevel {
-  value:number;
-  name: string;
-  checked: boolean;
-}
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import ILevel from 'src/app/models/ILevel';
 
 @Component({
   selector: 'app-levels',
   templateUrl: './levels.component.html',
   styleUrls: ['./levels.component.scss'],
 })
-export class LevelsComponent {
+export class LevelsComponent implements OnInit {
   public timeValue: number;
 
-  @Input() levels: Array<object>;
+  @Input() levels: ILevel[];
   @Input() isTimerCounting: boolean;
   @Output() newTime = new EventEmitter<ILevel>();
 
-  constructor() {}
+  ngOnInit(): void {
+    const levelChecked = this.levels.find((level) => level.checked);
+    if(levelChecked) {
+      this.newTime.emit(levelChecked);
+    }
+  }
 
   public changeTimeValue(level: ILevel): void {
     this.timeValue = level.value;
