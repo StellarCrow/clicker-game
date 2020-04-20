@@ -1,0 +1,19 @@
+<div class="result">
+  <div class="result__message">
+    Congratulations, {{ username.toUpperCase() }}! Your score is<span class="result__score">{{ score }}</span>
+  </div>
+  <div class="result__details">
+    <div *ngIf="isWinner; else notWinner">
+      <div class="result__message result__message--winner">
+        You're THE BEST! You won the gold finger!
+      </div>
+      <img class="result__image" src="assets/images/gold-finger.png" alt="gold finger" />
+    </div>
+    <ng-template #notWinner>
+      <div class="result__message">
+        Not bad. But not the best.
+      </div>
+      <img class="result__image" src="assets/images/guy.gif" alt="" />
+    </ng-template>
+  </div>
+</div>
