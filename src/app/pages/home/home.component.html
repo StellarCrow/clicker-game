@@ -5,7 +5,7 @@
       <p class="home__subtitle">Welcome, stranger! Write your name below.</p>
     </div>
     <form class="home__form" (submit)="onSubmit($event)">
-      <input type="text" class="home__input input" [value]="username" (change)="onInputChange($event)" autofocus required />
+      <input type="text" class="home__input input" maxlength="30" [(ngModel)]="username" name="username" autofocus required />
       <button class="home__button button" type="submit">Continue</button>
     </form>
   </div>

@@ -11,10 +11,6 @@ export class HomeComponent {
 
   constructor(private router: Router) {}
 
-  public onInputChange({ target }: CustomEvent): void {
-    this.username = (target as HTMLInputElement).value;
-  }
-
   public onSubmit(event: CustomEvent): void {
     event.preventDefault();
     const username = this.username.toLowerCase();

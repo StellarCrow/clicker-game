@@ -44,12 +44,20 @@ $base-font-size: 16px;
 $primary-color: #8f75be;
 $secondary-color: #ffcc2e;
 
-$danger-color: #f9593a;
+$danger-color: #f93a3a;
+$danger-color--dark: #af1e1e;
 $warning-color: #c50e45;
 $success-color: #92CD41;
 $success-color--dark: rgb(112, 155, 52);
 
+$game-background-color: #1b1a1a;
+$pixel-box-color: #dfdfdf;
+
+$shadow-width: 4px;
+$outline-width: 6px;
+
 $button-success--hover: rgb(121, 189, 27);
+$button-click--hover: #d11717;
 
 $text-color--dark: rgb(82, 82, 82);
 $text-color--light: rgb(255, 255, 255);
