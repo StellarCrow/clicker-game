@@ -13,12 +13,7 @@ const levels = [
     name: 'Quarantine',
     value: '3600',
     checked: false,
-  },
-  {
-    name: 'Crazy',
-    value: '90',
-    checked: false,
-  },
+  }
 ];
 
 export default levels;

@@ -1,0 +1,32 @@
+@import 'setup/variables';
+
+.users {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: $text-color--light;
+  &__item {
+    margin-bottom: 1em;
+    display: flex;
+  }
+
+  &__number {
+    margin-right: 1em;
+
+    &:nth-child(odd) {
+      color: $primary-color;
+    }
+
+    &:nth-child(even) {
+      color: $warning-color;
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+  }
+
+  &__score {
+    margin-left: auto;
+  }
+}
