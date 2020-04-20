@@ -9,9 +9,10 @@ import { GameComponent } from './pages/game/game.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { LevelsComponent } from './components/levels/levels.component';
 import { FormatTimePipe } from './pipes/format-time.pipe';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GameComponent, TimerComponent, FormatTimePipe, LevelsComponent],
+  declarations: [AppComponent, HomeComponent, GameComponent, TimerComponent, FormatTimePipe, LevelsComponent, ResultsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
