@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import ILevel from 'src/app/models/ILevel';
+import { ILevel } from 'src/app/models/ILevel';
 
 @Component({
   selector: 'app-levels',
@@ -15,7 +15,7 @@ export class LevelsComponent implements OnInit {
 
   ngOnInit(): void {
     const levelChecked = this.levels.find((level) => level.checked);
-    if(levelChecked) {
+    if (levelChecked) {
       this.newTime.emit(levelChecked);
     }
   }

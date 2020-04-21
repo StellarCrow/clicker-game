@@ -15,9 +15,9 @@
     <div class="game__levels">
       <app-levels [levels]="levels" (newTime)="setNewTime($event)" [isTimerCounting]="isTimerCounting"></app-levels>
     </div>
-    <div class="game__button">
+    <div class="game__playground">
       <div class="game__count">
-        {{clickCount}}
+        {{ clickCount }}
       </div>
       <button class="button button--click" (click)="incrementCount()">Click</button>
       <div class="game__timer">
@@ -28,9 +28,14 @@
       <img class="game__image" src="assets/images/guys.gif" alt="guys" [ngStyle]="{ visibility: showGif ? 'visible' : 'hidden' }" />
     </div>
   </div>
-  <ng-template class="game__row" #results>
-    <div class="game__description">
-      {{clickCount}}
+  <ng-template #results>
+    <div class="game__row">
+      <app-results class="game__results" [score]="clickCount"></app-results>
+    </div>
+    <div class="game__row">
+      <div class="game__options">
+        <app-options></app-options>
+      </div>
     </div>
   </ng-template>
 </main>

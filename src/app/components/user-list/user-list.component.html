@@ -1,0 +1,11 @@
+<ul class="stats">
+  <li class="stats__item" *ngFor="let user of users; let i = index">
+    <span class="stats__number">{{ i + 1 }}.</span>
+    <span class="stats__name">
+      {{ user.name }}
+    </span>
+    <span class="stats__score">
+      {{ user.score }}
+    </span>
+  </li>
+</ul>
