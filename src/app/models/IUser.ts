@@ -1,6 +1,4 @@
-interface IUser {
-  user: string;
+export interface IUser {
+  name: string;
   score: number;
 }
-
-export default IUser;

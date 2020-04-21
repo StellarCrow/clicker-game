@@ -1,7 +1,7 @@
-import { TimerComponent } from './../../components/timer/timer.component';
-import levels from '../../constants/levels';
+import { TimerComponent } from '../../timer/timer.component';
+import levels from '../../../constants/levels';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import ILevel from 'src/app/models/ILevel';
+import { ILevel } from 'src/app/models/ILevel';
 
 @Component({
   selector: 'app-game',

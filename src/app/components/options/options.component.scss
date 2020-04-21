@@ -1,0 +1,30 @@
+@import 'setup/variables';
+
+.options {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &__item {
+    text-align: center;
+  }
+
+  &__link {
+    color: $text-color--light;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    max-width: 30%;
+    margin-bottom: 3%;
+  }
+}

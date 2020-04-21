@@ -15,7 +15,7 @@
     <div class="game__levels">
       <app-levels [levels]="levels" (newTime)="setNewTime($event)" [isTimerCounting]="isTimerCounting"></app-levels>
     </div>
-    <div class="game__button">
+    <div class="game__playground">
       <div class="game__count">
         {{ clickCount }}
       </div>
@@ -34,20 +34,7 @@
     </div>
     <div class="game__row">
       <div class="game__options">
-        <ul class="options">
-          <li class="options__item">
-            <a class="options__link" routerLink="/">
-              <img class="options__icon" src="assets/icons/restart.png" alt="" />
-              <span class="options__name">Restart</span> 
-            </a>
-          </li>
-          <li class="options__item">
-            <a class="options__link" routerLink="/statistics">
-              <img class="options__icon" src="assets/icons/statistic.png" alt="" />
-              <span class="options__name">Statistics</span> 
-            </a>
-          </li>
-        </ul>
+        <app-options></app-options>
       </div>
     </div>
   </ng-template>

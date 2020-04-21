@@ -3,7 +3,7 @@
     Congratulations, {{ username.toUpperCase() }}! Your score is<span class="result__score">{{ score }}</span>
   </div>
   <div class="result__details">
-    <div *ngIf="isWinner; else notWinner">
+    <div *ngIf="isNewHighscore; else notWinner">
       <div class="result__message result__message--winner">
         You're THE BEST! You won the gold finger!
       </div>

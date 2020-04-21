@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import IUser from 'src/app/models/IUser';
+import { IUser } from 'src/app/models/IUser';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     const users = localStorage.getItem('users');
     const usersArray = JSON.parse(users) || [];
     if (!this.isUsernameExist(usersArray)) {
-      const user: IUser = { user: username, score: 0 };
+      const user: IUser = { name: username, score: 0 };
       usersArray.push(user);
       localStorage.setItem('users', JSON.stringify(usersArray));
     }
@@ -34,6 +34,6 @@ export class HomeComponent implements OnInit {
   }
 
   private isUsernameExist(users: IUser[]): boolean {
-    return users.some((user) => user.user === this.username.toLowerCase());
+    return users.some((user) => user.name === this.username.toLowerCase());
   }
 }

@@ -1,15 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import IUser from 'src/app/models/IUser';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { IUser } from 'src/app/models/IUser';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, AfterViewInit {
   public users: IUser[];
   public username: string;
-  public isWinner: boolean;
 
   @Input() score: number;
 
@@ -17,26 +16,26 @@ export class ResultsComponent implements OnInit {
     const users = localStorage.getItem('users');
     this.users = JSON.parse(users) || [];
     this.username = localStorage.getItem('user');
-    this.isWinner = this.isNewHighscore();
+  }
+
+  ngAfterViewInit(): void {
     this.saveScore();
   }
 
-  private isNewHighscore(): boolean {
+  get isNewHighscore(): boolean {
     const highscore = Math.max.apply(
       Math,
       this.users.map((user) => user.score)
     );
-    return highscore < this.score;
+    return highscore <= this.score;
   }
 
   private saveScore(): void {
-    const user = { user: this.username, score: this.score };
-    const usersString = localStorage.getItem('users');
-    const users = JSON.parse(usersString);
-    const userIndex = users.findIndex((player: IUser) => player.user === this.username && player.score < this.score);
+    const user = { name: this.username, score: this.score };
+    const userIndex = this.users.findIndex((player: IUser) => player.name === this.username && player.score < this.score);
     if (userIndex > -1) {
-      users.splice(userIndex, 1, user);
-      const saveUsers = JSON.stringify(users);
+      this.users.splice(userIndex, 1, user);
+      const saveUsers = JSON.stringify(this.users);
       localStorage.setItem('users', saveUsers);
     }
   }
