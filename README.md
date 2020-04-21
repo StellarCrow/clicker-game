@@ -1,6 +1,6 @@
 # ClickerGame
 
-## Desciption
+## Description
 
 Small game made in old 8 bit style. Click-click-click for the new highscore!
 You can choose game mode and watch statistics.
