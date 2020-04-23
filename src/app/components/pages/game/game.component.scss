@@ -12,6 +12,10 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 3%;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__description {
@@ -72,5 +76,32 @@
   &__options {
     margin: auto;
     min-width: 50%;
+  }
+}
+
+@media (max-width: $bp-small) {
+  .game {
+    &__username {
+      padding: 5% 0;
+    }
+
+    &__results {
+      margin: auto;
+      max-width: 80%;
+    }
+
+    &__row {
+      justify-content: center;
+      flex-flow: column nowrap;
+      border-bottom: 3px solid $text-color--light;
+      padding: 4% 0;
+
+      & > div {
+        margin-bottom: 5%;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

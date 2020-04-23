@@ -22,3 +22,10 @@
       font-size: 1.5em;
   }
 }
+
+
+@media (max-width: $bp-small) {
+  .result {
+    font-size: 0.8em;
+  }
+}

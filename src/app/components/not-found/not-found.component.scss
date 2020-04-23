@@ -1,0 +1,27 @@
+@import 'setup/variables';
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  background-color: $game-background-color;
+  color: $text-color--light;
+
+  &__content {
+    margin: auto;
+    max-width: 30%;
+    text-align: center;
+  }
+
+  &__photo {
+    max-width: 40%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: $bp-small) {
+  .page {
+    &__content {
+      max-width: 70%;
+    }
+  }
+}
