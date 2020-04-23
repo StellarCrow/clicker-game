@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IUser } from 'src/app/models/IUser';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-results',
