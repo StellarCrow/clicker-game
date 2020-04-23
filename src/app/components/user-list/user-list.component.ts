@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IUser } from 'src/app/models/IUser';
 
 @Component({
@@ -6,12 +6,7 @@ import { IUser } from 'src/app/models/IUser';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
-  public users: IUser[];
+export class UserListComponent {
 
-  ngOnInit(): void {
-    const usersString = localStorage.getItem('users');
-    const users = JSON.parse(usersString) || [];
-    this.users = users.sort((a: IUser, b: IUser) => b.score - a.score);
-  }
+  @Input() users:IUser[];
 }

@@ -13,6 +13,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { StatisticsComponent } from './components/pages/statistics/statistics.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { OptionsComponent } from './components/options/options.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { OptionsComponent } from './components/options/options.component';
     StatisticsComponent,
     UserListComponent,
     OptionsComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -17,7 +17,7 @@
     </div>
     <div class="game__playground">
       <div class="game__count">
-        {{ clickCount }}
+        {{ score }}
       </div>
       <button class="button button--click" (click)="incrementCount()">Click</button>
       <div class="game__timer">
@@ -25,12 +25,12 @@
       </div>
     </div>
     <div class="game__gif">
-      <img class="game__image" src="assets/images/guys.gif" alt="guys" [ngStyle]="{ visibility: showGif ? 'visible' : 'hidden' }" />
+      <img class="game__image" src="assets/images/guys.gif" alt="guys" [ngStyle]="{ visibility: isTimerCounting ? 'visible' : 'hidden' }" />
     </div>
   </div>
   <ng-template #results>
     <div class="game__row">
-      <app-results class="game__results" [score]="clickCount"></app-results>
+      <app-results class="game__results" [user]="user" [isNewHighscore]="isNewHighscore"></app-results>
     </div>
     <div class="game__row">
       <div class="game__options">

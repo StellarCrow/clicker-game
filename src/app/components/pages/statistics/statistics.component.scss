@@ -35,3 +35,17 @@
       color: $text-color--light;
   }
 }
+
+
+@media (max-width: $bp-small) {
+  .statistics {
+    &__container {
+      min-width: 90%;
+      max-width: 95%;
+    }
+
+    &__header {
+      margin-bottom: 10%;
+    }
+  }
+}

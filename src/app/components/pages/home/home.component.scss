@@ -44,3 +44,24 @@
         margin: 2% auto;
     }
 }
+
+@media (max-width: $bp-small) {
+    .home {
+        &__title {
+            font-size: 2.5em;
+        }
+
+        &__subtitle {
+            font-size: 0.8em;
+            color: $text-color--light;
+            background-color: rgba($color: #000000, $alpha: 0.6);
+            padding: 3%;
+            line-height: 1.5em;
+        }
+
+        &__input,
+        &__button {
+            font-size: 0.8em;
+        }
+    }
+}
